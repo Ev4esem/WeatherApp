@@ -1,81 +1,36 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id(libs.plugins.android.application.get().pluginId)
+    id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.parcelize.get().pluginId)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.parcelize)
 }
+
+apply<MainGradlePlugin>()
 
 android {
     namespace = "com.example.weatherapp"
-    compileSdk = 34
-
     defaultConfig {
-        applicationId = "com.example.weatherapp"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        versionCode = ProjectConfig.versionCode
+        targetSdk = ProjectConfig.targetSdk
+        versionName = ProjectConfig.versionName
+        applicationId = ProjectConfig.appId
+        val key = property("apikey")?.toString() ?: error("You should add apikey in gradle.properties")
+        buildConfigField("String", "WEATHER_API_KEY", "\"$key\"")
     }
     kotlinOptions {
-        jvmTarget = "11"
-    }
-    buildFeatures {
-        compose = true
+        jvmTarget = ProjectConfig.jvmTargetVersion
     }
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    implementation(libs.material.icons.extended)
-    // MVI kotlin
-    implementation(libs.mvikotlin)
-    implementation(libs.mvikotlin.main)
-    implementation(libs.mvikotlin.extensions.coroutines)
-    // Decompose
-    implementation(libs.decompose)
-    implementation(libs.decompose.compose)
-    // Room
-    ksp(libs.room.compiler)
-    implementation(libs.room.ktx)
-    // Dagger
-    implementation(libs.dagger)
-    ksp(libs.dagger.compiler)
-    // Glide
-    implementation(libs.glide.compose)
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter)
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    kotlin()
+    compose()
+    mvikotlin()
+    decompose()
+    room()
+    dagger()
+    implementation(Dependencies.glideCompose)
+    retrofit()
+    test()
 }
