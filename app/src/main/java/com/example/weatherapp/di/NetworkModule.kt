@@ -1,6 +1,5 @@
 package com.example.weatherapp.di
 
-import androidx.core.os.BuildCompat
 import com.example.weatherapp.BuildConfig
 import dagger.Module
 import dagger.Provides

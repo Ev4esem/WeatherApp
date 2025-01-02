@@ -1,69 +1,28 @@
 [versions]
 agp = "8.7.1"
 kotlin = "2.1.0"
-coreKtx = "1.13.1"
+kspVersion = "2.1.0-1.0.29"
+kotlinGradlePlugin = "1.9.24"
+coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.7"
-activityCompose = "1.9.3"
-composeBom = "2024.04.01"
-mvikotlinVersion = "4.2.0"
-decomposeVersion = "3.2.2"
-roomVersion = "2.6.1"
-kspVersion = "2.1.0-1.0.29"
-daggerVersion = "2.54"
-glideVersion = "1.0.0-beta01"
-retrofitVersion = "2.9.0"
-jetbrainsKotlinJvm = "2.1.0"
 appcompat = "1.7.0"
 material = "1.12.0"
-gradleToolsVersion = "8.7.3"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlinGradlePlugin" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
-# MVI kotlin
-mvikotlin = { group = "com.arkivanov.mvikotlin", name = "mvikotlin", version.ref = "mvikotlinVersion" }
-mvikotlin-extensions-coroutines = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-extensions-coroutines", version.ref = "mvikotlinVersion" }
-mvikotlin-main = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-main", version.ref = "mvikotlinVersion" }
-# Decompose
-decompose = { group = "com.arkivanov.decompose", name = "decompose", version.ref = "decomposeVersion" }
-decompose-compose = { group = "com.arkivanov.decompose", name = "extensions-compose", version.ref = "decomposeVersion" }
-# Room
-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
-# Dagger
-dagger = { group = "com.google.dagger", name = "dagger", version.ref = "daggerVersion" }
-dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "daggerVersion" }
-# Glide
-glide-compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glideVersion" }
-# Retrofit
-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
-retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-gradle-tools = { group = "com.android.tools.build", name = "gradle", version.ref = "gradleToolsVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
 parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
-android-library = { id = "com.android.library", version.ref = "agp" }
-kotlin-gradle-plugin = { id = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }

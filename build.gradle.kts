@@ -3,4 +3,7 @@ buildscript {
         google()
         mavenCentral()
     }
+    dependencies {
+        classpath(libs.kotlin.gradle.plugin)
+    }
 }

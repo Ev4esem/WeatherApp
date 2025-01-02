@@ -21,6 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "WeatherApp"
 include(":app")
-include(":details_feature")
-include(":favourite_feature")
-include(":search_feature")
+include(":search_screen")
+include(":favourite_screen")
+include(":details_screen")

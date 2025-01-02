@@ -21,6 +21,18 @@ android {
     kotlinOptions {
         jvmTarget = ProjectConfig.jvmTargetVersion
     }
+    buildTypes {
+        debug {
+            isMinifyEnabled = false
+        }
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
 }
 
 dependencies {
@@ -31,6 +43,9 @@ dependencies {
     room()
     dagger()
     implementation(Dependencies.glideCompose)
+    implementation(project(Modules.DETAILS_MODULE))
+    implementation(project(Modules.SEARCH_MODULE))
+    implementation(project(Modules.FAVOURITE_MODULE))
     retrofit()
     test()
 }

@@ -1,0 +1,7 @@
+package com.example.details_screen.data.network.dto
+
+import com.google.gson.annotations.SerializedName
+
+data class ForecastDto(
+    @SerializedName("forecastday") val forecastDay: List<DayDto>,
+)
