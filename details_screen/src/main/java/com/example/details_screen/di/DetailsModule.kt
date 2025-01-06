@@ -12,12 +12,14 @@ import retrofit2.create
 @Module
 interface DetailsModule {
 
-    @Binds
+    @[DetailsScreenScope Binds]
     fun bindRepositoryToRepositoryImpl(repositoryImpl: DetailsRepositoryImpl): DetailsRepository
 
     companion object {
-        @Provides
-        fun provideDetailsApiService(retrofit: Retrofit): DetailsApiService = retrofit.create()
+        @[DetailsScreenScope Provides]
+        fun provideDetailsApiService(retrofit: Retrofit): DetailsApiService {
+           return retrofit.create()
+        }
     }
 
 }

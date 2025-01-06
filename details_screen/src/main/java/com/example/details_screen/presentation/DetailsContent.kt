@@ -1,4 +1,4 @@
-package com.example.details_feature.presentation
+package com.example.details_screen.presentation
 
 import androidx.compose.runtime.Composable
 

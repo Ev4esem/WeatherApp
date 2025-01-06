@@ -1,12 +1,18 @@
 package com.example.details_screen.di
 
+import com.example.core.di.DatabaseModule
+import com.example.details_screen.presentation.DetailsStoreFactory
 import dagger.Component
 
+@DetailsScreenScope
 @Component(
-    modules = [DetailsModule::class],
-    dependencies = [DetailsDependencies::class]
+    modules = [DetailsModule::class, DatabaseModule::class],
+    dependencies = [DetailsDependencies::class],
+
 )
-internal interface DetailsComponent {
+interface DetailsComponent {
+
+    fun inject(storeFactory: DetailsStoreFactory)
 
     @Component.Factory
     interface Factory {
