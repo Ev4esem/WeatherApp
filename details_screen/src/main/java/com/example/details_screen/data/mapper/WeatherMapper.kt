@@ -1,10 +1,10 @@
-package com.example.details_feature.data.mapper
+package com.example.details_screen.data.mapper
 
 import com.example.details_screen.data.network.dto.WeatherCurrentDto
 import com.example.details_screen.data.network.dto.WeatherDto
 import com.example.details_screen.data.network.dto.WeatherForecastDto
-import com.example.details_feature.domain.entities.Forecast
-import com.example.details_feature.domain.entities.Weather
+import com.example.details_screen.domain.entities.Forecast
+import com.example.details_screen.domain.entities.Weather
 import java.util.Calendar
 import java.util.Date
 

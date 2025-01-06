@@ -1,6 +1,7 @@
 package com.example.weatherapp
 
 import android.app.Application
+import com.example.core.di.DatabaseStore
 import com.example.details_screen.di.DetailsDependenciesStore
 import com.example.favourite_screen.di.FavouriteDependenciesStore
 import com.example.search_screen.di.SearchDependenciesStore
@@ -19,6 +20,7 @@ class WeatherApp: Application() {
         SearchDependenciesStore.deps = appComponent
         FavouriteDependenciesStore.deps = appComponent
         DetailsDependenciesStore.deps = appComponent
+        DatabaseStore.deps = appComponent
     }
 
 }

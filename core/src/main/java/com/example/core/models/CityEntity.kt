@@ -1,4 +1,4 @@
-package com.example.favourite_screen.data.local.models
+package com.example.core.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

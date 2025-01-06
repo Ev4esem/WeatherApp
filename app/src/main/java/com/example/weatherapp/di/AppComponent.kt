@@ -2,7 +2,9 @@ package com.example.weatherapp.di
 
 import android.content.Context
 import com.arkivanov.mvikotlin.core.store.StoreFactory
+import com.example.core.db.FavouriteCitiesDao
 import com.example.details_screen.di.DetailsDependencies
+import com.example.core.di.DatabaseDependencies
 import com.example.favourite_screen.di.FavouriteDependencies
 import com.example.search_screen.di.SearchDependencies
 import com.example.weatherapp.MainActivity
@@ -15,7 +17,13 @@ import javax.inject.Singleton
 @Component(
     modules = [NetworkModule::class, PresentationModule::class]
 )
-interface AppComponent: SearchDependencies, FavouriteDependencies, DetailsDependencies {
+interface AppComponent:
+    SearchDependencies,
+    FavouriteDependencies,
+    DetailsDependencies,
+    DatabaseDependencies {
+
+    override val favouriteCitiesDao: FavouriteCitiesDao
 
     override val retrofit: Retrofit
 

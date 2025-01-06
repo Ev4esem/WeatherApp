@@ -1,11 +1,11 @@
-package com.example.favourite_screen.domain.usecases
+package com.example.details_screen.domain.usecases
 
-import com.example.favourite_screen.domain.repositories.FavouriteRepository
+import com.example.details_screen.domain.repositories.DetailsRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class ObserveFavouriteStateUseCase @Inject constructor(
-    private val repository: FavouriteRepository
+    private val repository: DetailsRepository
 ) {
     operator fun invoke(cityId: Int): Flow<Boolean> = repository.observeIsFavourite(cityId)
 }

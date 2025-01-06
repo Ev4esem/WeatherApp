@@ -1,9 +1,9 @@
 package com.example.favourite_screen.di
 
-import android.content.Context
 import com.arkivanov.mvikotlin.core.store.StoreFactory
+import retrofit2.Retrofit
 
 interface FavouriteDependencies {
-    val context: Context
     val storeFactory: StoreFactory
+    val retrofit: Retrofit
 }

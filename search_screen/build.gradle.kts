@@ -22,4 +22,5 @@ dependencies {
     test()
     decompose()
     mvikotlin()
+    implementation(project(Modules.CORE_MODULE))
 }

@@ -5,7 +5,7 @@ import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineBootstrapper
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
-import com.example.favourite_screen.domain.entities.City
+import com.example.core.models.City
 import com.example.favourite_screen.domain.usecases.GetCurrentWeatherUseCase
 import com.example.favourite_screen.domain.usecases.GetFavouriteCitiesUseCase
 import com.example.favourite_screen.presentation.FavouriteStore.Intent
@@ -14,16 +14,16 @@ import com.example.favourite_screen.presentation.FavouriteStore.State
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-internal interface FavouriteStore : Store<Intent, State, Label> {
+interface FavouriteStore : Store<Intent, State, Label> {
 
     sealed interface Intent {
 
         data object ClickSearch: Intent
 
-        data object ClickToFavourite: Intent
+        data object ClickAddToFavourite: Intent
 
         data class SelectCity(
-           val cityId: Int
+           val city: City
         ): Intent
 
     }
@@ -57,16 +57,16 @@ internal interface FavouriteStore : Store<Intent, State, Label> {
 
         data object ClickSearch: Label
 
-        data object ClickToFavourite: Label
+        data object ClickAddToFavourite: Label
 
         data class SelectCity(
-            val cityId: Int
+            val city: City
         ): Label
 
     }
 }
 
-internal class FavouriteStoreFactory @Inject constructor(
+class FavouriteStoreFactory @Inject constructor(
     private val storeFactory: StoreFactory,
     private val getFavouriteCitiesUseCase: GetFavouriteCitiesUseCase,
     private val getCurrentWeatherUseCase: GetCurrentWeatherUseCase,
@@ -124,8 +124,8 @@ internal class FavouriteStoreFactory @Inject constructor(
         override fun executeIntent(intent: Intent) {
             when(intent) {
                 is Intent.ClickSearch -> publish(Label.ClickSearch)
-                is Intent.ClickToFavourite -> publish(Label.ClickToFavourite)
-                is Intent.SelectCity -> publish(Label.SelectCity(intent.cityId))
+                is Intent.ClickAddToFavourite -> publish(Label.ClickAddToFavourite)
+                is Intent.SelectCity -> publish(Label.SelectCity(intent.city))
             }
         }
 

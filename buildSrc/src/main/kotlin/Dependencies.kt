@@ -18,7 +18,7 @@ object Dependencies {
     const val mvikotlinExtensionsCoroutines = "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines:${Versions.mvikotlinVersion}"
     const val mvikotlinMain = "com.arkivanov.mvikotlin:mvikotlin-main:${Versions.mvikotlinVersion}"
     const val decompose = "com.arkivanov.decompose:decompose:${Versions.decomposeVersion}"
-    const val decomposeCompose = "com.arkivanov.decompose:extensions-compose:${Versions.decomposeVersion}"
+    const val decomposeCompose = "com.arkivanov.decompose:extensions-compose-jetpack:${Versions.decomposeVersion}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.roomVersion}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.roomVersion}"
     const val dagger = "com.google.dagger:dagger:${Versions.daggerVersion}"
@@ -27,4 +27,5 @@ object Dependencies {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
     const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val lifecycleViewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.viewModelVersion}"
 }

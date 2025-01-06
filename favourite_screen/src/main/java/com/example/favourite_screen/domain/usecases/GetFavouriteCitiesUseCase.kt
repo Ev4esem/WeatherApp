@@ -1,6 +1,6 @@
 package com.example.favourite_screen.domain.usecases
 
-import com.example.favourite_screen.domain.entities.City
+import com.example.core.models.City
 import com.example.favourite_screen.domain.repositories.FavouriteRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

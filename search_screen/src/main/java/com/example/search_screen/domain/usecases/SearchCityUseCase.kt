@@ -1,6 +1,6 @@
 package com.example.search_screen.domain.usecases
 
-import com.example.search_screen.domain.entities.City
+import com.example.core.models.City
 import com.example.search_screen.domain.repositories.SearchRepository
 import javax.inject.Inject
 

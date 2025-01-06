@@ -1,6 +1,7 @@
 plugins {
     id(libs.plugins.android.library.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
+    id(libs.plugins.parcelize.get().pluginId)
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.compose)
 }
@@ -22,4 +23,6 @@ dependencies {
     retrofit()
     decompose()
     mvikotlin()
+    implementation(Dependencies.lifecycleViewModelCompose)
+    implementation(project(Modules.CORE_MODULE))
 }

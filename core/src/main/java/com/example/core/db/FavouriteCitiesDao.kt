@@ -1,10 +1,10 @@
-package com.example.favourite_screen.data.local.db
+package com.example.core.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.favourite_screen.data.local.models.CityEntity
+import com.example.core.models.CityEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

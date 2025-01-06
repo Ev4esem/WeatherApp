@@ -1,4 +1,4 @@
-package com.example.details_feature.domain.entities
+package com.example.details_screen.domain.entities
 
 import java.util.Calendar
 

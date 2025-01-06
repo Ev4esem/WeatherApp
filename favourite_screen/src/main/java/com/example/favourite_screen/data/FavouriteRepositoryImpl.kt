@@ -1,11 +1,11 @@
 package com.example.favourite_screen.data
 
-import com.example.favourite_screen.data.local.db.FavouriteCitiesDao
-import com.example.favourite_screen.data.mapper.toCities
-import com.example.favourite_screen.data.mapper.toCityEntity
+import com.example.core.db.FavouriteCitiesDao
+import com.example.core.mappers.toCities
+import com.example.core.mappers.toCityEntity
+import com.example.core.models.City
 import com.example.favourite_screen.data.mapper.toWeatherCurrent
 import com.example.favourite_screen.data.network.api.FavouriteApiService
-import com.example.favourite_screen.domain.entities.City
 import com.example.favourite_screen.domain.entities.Weather
 import com.example.favourite_screen.domain.repositories.FavouriteRepository
 import kotlinx.coroutines.flow.Flow
@@ -21,17 +21,6 @@ class FavouriteRepositoryImpl @Inject constructor (
 
     override suspend fun getWeather(cityId: Int): Weather {
         return favouriteApiService.loadCurrentWeather("$PREFIX_CITY_ID$cityId").toWeatherCurrent()
-    }
-
-    override fun observeIsFavourite(cityId: Int): Flow<Boolean> = favouriteCitiesDao
-        .observeIsFavourite(cityId)
-
-    override suspend fun addToFavourite(city: City) {
-        favouriteCitiesDao.addToFavourite(city.toCityEntity())
-    }
-
-    override suspend fun removeFromFavourite(cityId: Int) {
-        favouriteCitiesDao.removeFromFavourite(cityId)
     }
 
     private companion object {

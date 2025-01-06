@@ -46,6 +46,7 @@ dependencies {
     implementation(project(Modules.DETAILS_MODULE))
     implementation(project(Modules.SEARCH_MODULE))
     implementation(project(Modules.FAVOURITE_MODULE))
+    implementation(project(Modules.CORE_MODULE))
     retrofit()
     test()
 }
