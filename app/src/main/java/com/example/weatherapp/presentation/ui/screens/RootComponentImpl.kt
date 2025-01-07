@@ -1,4 +1,4 @@
-package com.example.weatherapp.presentation.root
+package com.example.weatherapp.presentation.ui.screens
 
 import android.os.Parcelable
 import com.arkivanov.decompose.ComponentContext
@@ -40,7 +40,7 @@ class RootComponentImpl @AssistedInject constructor(
     ): RootComponent.Child {
         return when(config) {
             is Config.Details -> {
-                val component = detailsComponentFactory.create(
+                val component = detailsComponentFactory(
                     city = config.city,
                     onBackClicked = {
                         navigation.pop()
@@ -50,7 +50,7 @@ class RootComponentImpl @AssistedInject constructor(
                 RootComponent.Child.Details(component)
             }
             is Config.Favourite -> {
-                val component = favouriteComponentFactory.create(
+                val component = favouriteComponentFactory(
                     onCityItemClicked = { city ->
                         navigation.push(Config.Details(city))
                     },
@@ -65,7 +65,7 @@ class RootComponentImpl @AssistedInject constructor(
                 RootComponent.Child.Favourite(component)
             }
             is Config.Search -> {
-                val component = searchComponentFactory.create(
+                val component = searchComponentFactory(
                     onBackClicked = {
                         navigation.pop()
                     },
@@ -97,8 +97,8 @@ class RootComponentImpl @AssistedInject constructor(
     }
 
     @AssistedFactory
-    interface Factory {
-        fun create(
+    interface Factory: RootComponent.Factory {
+        override fun invoke(
             @Assisted("componentContext") componentContext: ComponentContext
         ): RootComponentImpl
     }

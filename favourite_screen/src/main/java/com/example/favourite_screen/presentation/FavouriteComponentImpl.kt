@@ -57,8 +57,8 @@ class FavouriteComponentImpl @AssistedInject constructor(
     }
 
     @AssistedFactory
-    interface Factory {
-        fun create(
+    interface Factory: FavouriteComponent.Factory {
+        override fun invoke(
             @Assisted("onCityItemClicked") onCityItemClicked: (City) -> Unit,
             @Assisted("onAddFavouriteClicked") onAddFavouriteClicked: () -> Unit,
             @Assisted("onSearchClicked") onSearchClicked: () -> Unit,

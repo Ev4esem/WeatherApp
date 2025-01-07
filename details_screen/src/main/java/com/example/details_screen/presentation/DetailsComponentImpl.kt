@@ -46,8 +46,8 @@ class DetailsComponentImpl @AssistedInject constructor(
     }
 
     @AssistedFactory
-    interface Factory {
-        fun create(
+    interface Factory: DetailsComponent.Factory {
+        override fun invoke(
             @Assisted("city") city: City,
             @Assisted("onBackClicked") onBackClicked: () -> Unit,
             @Assisted("componentContext") componentContext: ComponentContext

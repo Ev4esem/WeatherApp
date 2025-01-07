@@ -5,7 +5,6 @@ import com.arkivanov.decompose.extensions.compose.jetpack.stack.Children
 import com.example.details_screen.presentation.DetailsContent
 import com.example.favourite_screen.presentation.FavouriteContent
 import com.example.search_screen.presentation.SearchContent
-import com.example.weatherapp.presentation.root.RootComponent
 import com.example.weatherapp.presentation.ui.theme.WeatherAppTheme
 
 @Composable

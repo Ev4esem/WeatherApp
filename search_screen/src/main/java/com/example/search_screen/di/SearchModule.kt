@@ -3,6 +3,8 @@ package com.example.search_screen.di
 import com.example.search_screen.data.SearchRepositoryImpl
 import com.example.search_screen.data.network.api.SearchApiService
 import com.example.search_screen.domain.repositories.SearchRepository
+import com.example.search_screen.presentation.SearchComponent
+import com.example.search_screen.presentation.SearchComponentImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -13,13 +15,14 @@ import javax.inject.Singleton
 @Module
 interface SearchModule {
 
-    @Singleton
     @Binds
+    fun componentFactory(componentFactoryImpl: SearchComponentImpl.Factory): SearchComponent.Factory
+
+    @[Singleton Binds]
     fun bindRepositoryToRepositoryImpl(repositoryImpl: SearchRepositoryImpl): SearchRepository
 
     companion object {
-        @Singleton
-        @Provides
+        @[Singleton Provides]
         fun provideSearchApiService(retrofit: Retrofit): SearchApiService {
             return retrofit.create()
         }

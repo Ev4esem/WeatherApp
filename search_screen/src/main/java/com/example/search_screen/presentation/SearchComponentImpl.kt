@@ -63,8 +63,8 @@ class SearchComponentImpl @AssistedInject constructor(
     }
 
     @AssistedFactory
-    interface Factory {
-        fun create(
+    interface Factory: SearchComponent.Factory {
+        override fun invoke(
             @Assisted("openReason") openReason: OpenReason,
             @Assisted("onBackClicked") onBackClicked: () -> Unit,
             @Assisted("onClickForecast") onClickForecast: (City) -> Unit,
